@@ -38,7 +38,7 @@ default_args = {
     dag_id='wikimedia_traitement_agregations',
     default_args=default_args,
     description='Traitement et agrégations des événements Wikimedia',
-    schedule_interval='0 * * * *',
+    schedule='0 * * * *',
     catchup=False,
     tags=['wikimedia', 'traitement', 'agrégations'],
 )

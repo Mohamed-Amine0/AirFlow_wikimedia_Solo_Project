@@ -39,7 +39,7 @@ default_args = {
     dag_id='wikimedia_ingestion_kafka',
     default_args=default_args,
     description='Ingestion du flux Wikimedia vers Kafka',
-    schedule_interval='*/5 * * * *',
+    schedule='*/5 * * * *',
     catchup=False,
     tags=['wikimedia', 'ingestion', 'kafka'],
 )

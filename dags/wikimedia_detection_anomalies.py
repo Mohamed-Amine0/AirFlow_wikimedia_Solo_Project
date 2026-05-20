@@ -38,7 +38,7 @@ default_args = {
     dag_id='wikimedia_detection_anomalies',
     default_args=default_args,
     description='Détection d\'anomalies dans les événements Wikimedia',
-    schedule_interval='0 * * * *',
+    schedule='0 * * * *',
     catchup=False,
     tags=['wikimedia', 'anomalies', 'data_quality'],
 )

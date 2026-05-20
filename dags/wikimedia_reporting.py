@@ -36,7 +36,7 @@ default_args = {
     dag_id='wikimedia_reporting',
     default_args=default_args,
     description='Reporting automatisé Wikimedia',
-    schedule_interval='0 2 * * *',
+    schedule='0 2 * * *',
     catchup=False,
     tags=['wikimedia', 'reporting', 'analytics'],
 )
