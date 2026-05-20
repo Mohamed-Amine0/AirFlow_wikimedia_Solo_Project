@@ -1,0 +1,12 @@
+.git
+.gitignore
+.env
+logs/
+data/
+__pycache__
+*.pyc
+.pytest_cache
+.idea
+.vscode
+.DS_Store
+postgres-db-volume/
