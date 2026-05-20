@@ -268,6 +268,87 @@ cat /tmp/airflow_wikimedia_data/anomalies.jsonl
 cat /tmp/airflow_wikimedia_data/rapport_*.json
 ```
 
+### Dashboard Temps Réel (OBLIGATOIRE)
+
+Un dashboard complet pour visualiser le pipeline en temps réel.
+
+#### Démarrage du dashboard
+
+1. Générer les données de test (facultatif):
+```bash
+python generate_test_data.py
+```
+
+2. Lancer le serveur dashboard:
+```bash
+python serve_dashboard.py
+```
+
+3. Accéder au dashboard:
+```
+http://localhost:8000
+```
+
+#### Sections du dashboard
+
+Le dashboard affiche en temps réel:
+
+**Streaming**
+- Événements par seconde
+- Top 5 pages modifiées en direct
+- Activité bots (nombre, édits, ratio)
+
+**Kafka**
+- Topics disponibles (wm.recentchange.raw, wm.bot.events, wm.page.edits, wm.errors)
+- Lag de consommation
+- Nombre de brokers et status
+
+**Airflow - Orchestration**
+- État des 4 DAGs Wikimedia
+- Nombre de tâches réussies/échouées
+- DAGs actifs et latences
+
+**Qualité des Données**
+- Anomalies détectées
+- Taux de données invalides
+- Distribution par langue (top 10)
+- Activité par heure
+
+**Alertes et Incidents**
+- Liste des alertes actives
+- Sévérité des incidents
+- Messages d'alerte détaillés
+
+#### Caractéristiques
+
+- Auto-rafraîchissement chaque 5 secondes
+- Interface responsive (desktop/mobile)
+- Chargement en temps réel des données JSON
+- Thème sombre professionnel
+- Indicateurs de status (sain/avertissement/erreur)
+
+#### Architecture du dashboard
+
+```
+Dashboard HTML (dashboard.html)
+      |
+      v
+Serveur HTTP (serve_dashboard.py)
+      |
+      v
+Fichiers JSON
+├── activity_by_hour.json (activité)
+├── top_pages.json (pages)
+├── user_activity.json (utilisateurs)
+├── bot_ratio.json (bots)
+├── language_distribution.json (langues)
+├── anomalies.jsonl (anomalies)
+├── monitoring_latest.json (métriques Airflow/Kafka)
+└── rapport_YYYY-MM-DD.json (rapport consolidé)
+```
+
+Le dashboard consomme automatiquement tous ces fichiers et les affiche de manière claire et accessible.
+
 ## Flux de traitement
 
 1. **Ingestion (wikimedia_ingestion_kafka)**
