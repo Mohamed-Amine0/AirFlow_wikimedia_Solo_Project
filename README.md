@@ -11,11 +11,9 @@ Ce flux contient les événements réels de Wikipédia: éditions, suppressions,
 
 ## Demo
 
-Captures d'écran du tableau de bord réel:
+Capture du tableau de bord réel incluse dans le dépôt:
 
 ![Dashboard demo](docs/demo/screenshot-1.png)
-
-La capture est incluse dans le dépôt sous `docs/demo` pour la livraison GitHub.
 
 ## Architecture
 
@@ -406,6 +404,20 @@ Les DAGs de traitement, détection et reporting peuvent être déclenchés manue
 - `_AIRFLOW_WWW_USER_PASSWORD`: Password admin (défaut: airflow)
 
 ### Fichier .env
+
+
+## Demo
+
+Captures d'écran du tableau de bord (dossier `docs/demo`).
+
+- **But**: fournir une preuve visuelle du dashboard temps réel pour la livraison.
+- **Contenu attendu**: ajoutez une ou plusieurs images nommées `screenshot-1.png`, `screenshot-2.png`, etc. dans `docs/demo`.
+
+Exemple d'inclusion dans ce README:
+
+![Dashboard demo](docs/demo/screenshot-1.png)
+
+Conserver la section `Demo` concise — pas d'emojis, pas de décorations inutiles.
 
 Copier `.env.example` en `.env` et adapter les variables si besoin.
 
